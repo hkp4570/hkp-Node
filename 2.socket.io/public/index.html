@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">发送数据到服务器</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <script>
+      const socket = io();
+      socket.on("test", (test) => {
+        console.log(test);
+      });
+      document.getElementById("btn").onclick = function () {
+        socket.emit("msg", "client msg");
+      };
+
+      socket.on("disconnect", () => {
+        console.log("closed");
+      });
+    </script>
+  </body>
+</html>
