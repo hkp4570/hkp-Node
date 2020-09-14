@@ -10,7 +10,6 @@ require('./init')
 // server.listen(port,()=>{
 //     console.log('server listen');
 // })
-
 const express = require('express');
 const app = express(); // 创建一个express应用
 
@@ -25,14 +24,16 @@ app.get('/news/:id', (req, res) => {
     console.log("query", req.query);
     console.log("params", req.params);
 
-    // 响应
+    // 响应  send内容自动调用end
     //   res.send({
     //     id: 123,
     //     name: "成哥",
     //     age: 18,
     //   });
+    // 自己设置响应头
     //   res.setHeader("a", "123");
     //   res.send([2, 3, 4]);
+    // 重定向的方式
     //   res.status(302).header("location", "https://duyi.ke.qq.com").end();
     //   res.status(302).location("https://duyi.ke.qq.com").end();
     res.redirect(302, "https://duyi.ke.qq.com");
