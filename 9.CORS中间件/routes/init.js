@@ -7,7 +7,7 @@ const path = require("path");
 const staticRoot = path.resolve(__dirname, "../public");
 app.use(express.static(staticRoot));
 
-const whiteList = ['null'];
+const whiteList = ['null','http://localhost:63342'];  // 添加白名单
 app.use(cors({
   origin(origin,callback){
     if (whiteList.includes(origin)) {
